@@ -1,0 +1,7 @@
+venv/
+choferes/
+__pycache__/
+*.pyc
+bot.log
+.env
+Choferes.zip

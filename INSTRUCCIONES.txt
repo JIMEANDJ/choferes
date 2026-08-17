@@ -1,0 +1,26 @@
+BOT DE RUTAS COCA-COLA - INSTRUCCIONES
+=======================================
+
+REQUISITO PREVIO:
+  Tener Python instalado. Si no lo tienes:
+  1. Ve a https://www.python.org/downloads/
+  2. Descarga e instala la ultima version
+  3. IMPORTANTE: marca la opcion "Add Python to PATH" al instalar
+
+PRIMERA VEZ:
+  1. Doble clic en INSTALAR_Y_CORRER.bat
+     (instala todo automaticamente y arranca el bot)
+
+PROXIMAS VECES:
+  - Para arrancar el bot: doble clic en INSTALAR_Y_CORRER.bat
+  - Para detenerlo:       doble clic en detener_bot.bat
+
+USO EN TELEGRAM:
+  - Abre Telegram y busca el bot
+  - Escribe el codigo del cliente
+  - El bot te devuelve el nombre y el link de Google Maps
+
+NOTAS:
+  - El archivo Excel debe estar en esta misma carpeta
+  - El nombre del Excel se configura en config.py
+  - La actividad del bot se guarda en bot.log
