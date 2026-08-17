@@ -1,3 +1,7 @@
+import os
+import threading
+from http.server import BaseHTTPRequestHandler, HTTPServer
+
 import openpyxl
 from telegram import Update
 from telegram.ext import ApplicationBuilder, CommandHandler, MessageHandler, filters, ContextTypes
@@ -54,7 +58,19 @@ async def buscar(update: Update, _context: ContextTypes.DEFAULT_TYPE):
         parse_mode="Markdown"
     )
 
+def _iniciar_http():
+    class HealthHandler(BaseHTTPRequestHandler):
+        def do_GET(self):
+            self.send_response(200)
+            self.end_headers()
+            self.wfile.write(b"ok")
+        def log_message(self, *args):
+            pass
+    puerto = int(os.getenv("PORT", "10000"))
+    HTTPServer(("0.0.0.0", puerto), HealthHandler).serve_forever()
+
 def main():
+    threading.Thread(target=_iniciar_http, daemon=True).start()
     print("Cargando clientes desde Excel...")
     print(f"Total clientes cargados: {len(POR_CODIGO)}")
     print("Bot iniciado. Presiona Ctrl+C para detener.")
